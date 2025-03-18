@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Tripleseat Breakdance Form Action
  * Author: Nic Scott
- * Version: 1.0.1
+ * Version: 1.0.2
  * Description: This plugin adds a custom form action to the Breakdance form element.
  * Requires Plugins: breakdance
  */
