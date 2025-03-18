@@ -1,0 +1,10 @@
+{
+    "name": "nicscott01/tripleseat-breakdance-form-action",
+    "description": "Breakdance Form Action for Tripleseat",
+    "type": "wordpress-plugin", 
+    "require": {
+        "php": "^8.0"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
