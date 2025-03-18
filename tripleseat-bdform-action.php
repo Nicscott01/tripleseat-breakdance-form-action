@@ -4,7 +4,7 @@
  * Author: Nic Scott
  * Version: 1.0.0
  * Description: This plugin adds a custom form action to the Breakdance form element.
- * Required Plugins: breakdance
+ * Requires Plugins: breakdance
  */
 
  namespace Creare\Tripleseat;
