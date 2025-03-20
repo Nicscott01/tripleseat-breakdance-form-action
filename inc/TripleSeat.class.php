@@ -69,6 +69,9 @@ class Tripleseat extends \Breakdance\Forms\Actions\Action {
                 return ['type' => 'user-error', 'message' => 'Public key not set'];
             }
 
+            $lead_form_id = $settings['actions'][self::slug()]['lead_form_id'];
+
+
             $lead_first_name = $this->renderData( $form, $settings['actions'][self::slug()]['first_name'] );
             $lead_last_name = $this->renderData( $form, $settings['actions'][self::slug()]['last_name'] );
             $lead_email_address = $this->renderData( $form, $settings['actions'][self::slug()]['email_address'] );
@@ -90,6 +93,7 @@ class Tripleseat extends \Breakdance\Forms\Actions\Action {
                 return ['type' => 'user-error', 'message' => 'Required mapped value for Phone Number is empty'];
             }
 
+            $form_data['lead_form_id'] = !empty( $lead_form_id ) ? $lead_form_id : null;
             $form_data['first_name'] = !empty( $lead_first_name ) ? $lead_first_name : null;
             $form_data['last_name'] = !empty( $lead_last_name ) ? $lead_last_name : null;
             $form_data['email_address'] = !empty( $lead_email_address ) ? $lead_email_address : null;
@@ -175,9 +179,18 @@ class Tripleseat extends \Breakdance\Forms\Actions\Action {
      * Controls
      */
     public function controls() {
-        return [c(
+        return [
+            c(
             "public_key",
             "Public Key",
+            [],
+            ['type' => 'text', 'layout' => 'vertical'],
+            false,
+            false,
+            [],
+          ), c(
+            "lead_form_id",
+            "Lead Form ID (optional)",
             [],
             ['type' => 'text', 'layout' => 'vertical'],
             false,
@@ -222,7 +235,7 @@ class Tripleseat extends \Breakdance\Forms\Actions\Action {
             "tripleseat_field",
             "Tripleseat Field",
             [],
-            ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['text' => 'Contact Preference', 'value' => 'contact_preference'], ['text' => 'Company', 'value' => 'company'], ['text' => 'Nature of Event', 'value' => 'event_description'], ['text' => 'Location ID', 'value' => 'location_id'], ['text' => 'Event Date', 'value' => 'event_date'], ['text' => 'Start Time', 'value' => 'start_time'], ['text' => 'End Time', 'value' => 'end_time'], ['text' => 'Guest Count', 'value' => 'guest_count'], ['text' => 'Additional Information', 'value' => 'addition_information'], ['text' => 'Lead Form ID', 'value' => 'lead_form_id'], ['text' => 'Email Opt-in', 'value' => 'email_opt_in'], ['text' => 'Lead Source ID', 'value' => 'lead_source_id'], ['text' => 'Referral Source ID', 'value' => 'referral_source_id'], ['text' => 'Referral Source (Other)', 'value' => 'referral_source_other'], ['text' => 'GFPR Consent (value should be 1 if consented)', 'value' => 'gdpr_consent_granted'], ['text' => 'Event Style', 'value' => 'event_style'], ['value' => 'campaign_source', 'text' => 'Campaign Source'], ['text' => 'Campaign Medium', 'value' => 'campaign_medium'], ['value' => 'campaign_name', 'text' => 'Campaign Name'], ['value' => 'campaign_term', 'text' => 'Campaign Term'], ['value' => 'campaign_content', 'text' => 'Campaign Content']]],
+            ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['text' => 'Contact Preference', 'value' => 'contact_preference'], ['text' => 'Company', 'value' => 'company'], ['text' => 'Nature of Event', 'value' => 'event_description'], ['text' => 'Location ID', 'value' => 'location_id'], ['text' => 'Event Date', 'value' => 'event_date'], ['text' => 'Start Time', 'value' => 'start_time'], ['text' => 'End Time', 'value' => 'end_time'], ['text' => 'Guest Count', 'value' => 'guest_count'], ['text' => 'Additional Information', 'value' => 'additional_information'], ['text' => 'Lead Form ID', 'value' => 'lead_form_id'], ['text' => 'Email Opt-in', 'value' => 'email_opt_in'], ['text' => 'Lead Source ID', 'value' => 'lead_source_id'], ['text' => 'Referral Source ID', 'value' => 'referral_source_id'], ['text' => 'Referral Source (Other)', 'value' => 'referral_source_other'], ['text' => 'GDPR Consent (value should be 1 if consented)', 'value' => 'gdpr_consent_granted'], ['text' => 'Event Style', 'value' => 'event_style'], ['value' => 'campaign_source', 'text' => 'Campaign Source'], ['text' => 'Campaign Medium', 'value' => 'campaign_medium'], ['value' => 'campaign_name', 'text' => 'Campaign Name'], ['value' => 'campaign_term', 'text' => 'Campaign Term'], ['value' => 'campaign_content', 'text' => 'Campaign Content']]],
             false,
             false,
             [],

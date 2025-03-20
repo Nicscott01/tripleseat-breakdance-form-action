@@ -15,3 +15,11 @@ In trying to better handle errors, I ran into an issue where the [Breakdance doc
      'message' => 'This message will get returned in the form validation response'
 ]
 ```
+
+
+## Changelog
+### v1.0.3
+- Edited key for additional_information field that was not transmitting
+- Added field for `lead_form_ID`
+- Tested form fields and saw results in Tripleseat
+- Email opt-in works
